@@ -1,0 +1,24 @@
+<p>listado works!</p>
+
+<div *ngIf="deletedHeroe; else noBorrado">
+    <h1>Heroe borrado: <small>{{deletedHeroe}}</small></h1>
+    
+</div>
+<ng-template #noBorrado>
+    <h1>No borrado</h1>
+</ng-template>
+
+
+<ul>
+    <li *ngFor="let heroe of heroes; let i = index; even as isOdd; count as length " >
+        {{(i+0) + " " + heroe}} <span *ngIf="isOdd">{{length}}</span>
+    </li>
+</ul>
+
+<button (click)="delete()">Delete heroe</button>
+
+<ul>    
+    <ng-template ngFor let-item [ngForOf]="heroes" let-i="index">
+        <li>{{item}}</li>
+    </ng-template>
+</ul>
